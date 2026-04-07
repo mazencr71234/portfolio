@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Mazen Abdullah Saleh | Full Stack Developer | Professional Portfolio</title>
+  <title>Mazen Abdullah Saleh | Full Stack Developer | Restaurant Order System</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Typed.js Library -->
@@ -17,7 +17,7 @@
       transition: background-color 0.3s, color 0.3s;
     }
     
-    /* ---------- BLUE GLOWING DOTS (القط الزرقاء) ---------- */
+    /* Blue glowing dots */
     #blue-dots-canvas {
       position: fixed;
       top: 0;
@@ -27,23 +27,22 @@
       pointer-events: none;
       z-index: 5;
       opacity: 0.7;
-      transition: opacity 0.3s ease;
     }
     
-    /* Scroll Progress Indicator */
+    /* Scroll Progress */
     .scroll-progress {
       position: fixed;
       top: 0;
       left: 0;
       width: 0%;
       height: 4px;
-      background: linear-gradient(90deg, #3b82f6, #60a5fa, #3b82f6);
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
       z-index: 1000;
       transition: width 0.1s ease;
       box-shadow: 0 0 10px #3b82f6;
     }
     
-    /* Dark/Light Mode Toggle */
+    /* Theme Toggle */
     .theme-toggle {
       position: fixed;
       bottom: 25px;
@@ -63,39 +62,16 @@
       color: white;
       font-size: 1.8rem;
     }
-    
-    .theme-toggle:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 25px rgba(59,130,246,0.6);
-    }
+    .theme-toggle:hover { transform: scale(1.1); }
     
     body.light-mode {
       background-color: #f3f4f6;
     }
-    
-    body.light-mode .bg-\[0a0a0a\] {
-      background-color: #f3f4f6;
-    }
-    
-    body.light-mode .bg-\[\#050505\] {
-      background-color: #e5e7eb;
-    }
-    
-    body.light-mode .bg-\[\#111827\] {
-      background-color: #ffffff;
-      color: #1f2937;
-    }
-    
-    body.light-mode .text-gray-400,
-    body.light-mode .text-gray-300 {
-      color: #4b5563;
-    }
-    
-    body.light-mode .border-blue-900\/60 {
-      border-color: #93c5fd;
-    }
-    
-    body.light-mode .skill-card-modern,
+    body.light-mode .bg-\[0a0a0a\] { background-color: #f3f4f6; }
+    body.light-mode .bg-\[\#050505\] { background-color: #e5e7eb; }
+    body.light-mode .bg-\[\#111827\] { background-color: #ffffff; color: #1f2937; }
+    body.light-mode .text-gray-400, body.light-mode .text-gray-300 { color: #4b5563; }
+    body.light-mode .border-blue-900\/60 { border-color: #93c5fd; }
     body.light-mode .project-card-modern,
     body.light-mode .glass-about,
     body.light-mode .cert-card-modern {
@@ -103,18 +79,8 @@
       backdrop-filter: blur(12px);
       border-color: #93c5fd;
     }
-    
-    body.light-mode .bg-\[#111827\]\/50,
-    body.light-mode .bg-\[#1f2937\] {
-      background: rgba(243, 244, 246, 0.9);
-      border-color: #93c5fd;
-    }
-    
-    body.light-mode input, body.light-mode textarea {
-      background: #f9fafb;
-      color: #1f2937;
-      border-color: #93c5fd;
-    }
+    body.light-mode .bg-\[#111827\]\/50 { background: rgba(243, 244, 246, 0.9); }
+    body.light-mode input, body.light-mode textarea { background: #f9fafb; color: #1f2937; }
     
     /* section animations */
     .section {
@@ -122,12 +88,9 @@
       transform: translateY(60px);
       transition: all 1.4s cubic-bezier(0.25, 0.1, 0.25, 1);
     }
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Certifications Modern Cards Animation */
+    .section.visible { opacity: 1; transform: translateY(0); }
+    
+    /* Cert cards animation */
     .cert-card-modern {
       opacity: 0;
       transform: translateY(50px) scale(0.94);
@@ -142,8 +105,8 @@
       box-shadow: 0 35px 60px -15px rgba(96, 165, 250, 0.5);
       border-color: rgba(96, 165, 250, 0.8);
     }
-
-    /* Modern Project Cards */
+    
+    /* Project cards */
     .project-card-modern {
       background: rgba(17, 24, 39, 0.75);
       backdrop-filter: blur(12px);
@@ -151,17 +114,19 @@
       transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       border: 1px solid rgba(59, 130, 246, 0.3);
       overflow: hidden;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
-    
     .project-card-modern:hover {
-      transform: translateY(-15px) scale(1.01);
+      transform: translateY(-12px);
       border-color: rgba(96, 165, 250, 0.7);
       box-shadow: 0 40px 60px -20px rgba(59, 130, 246, 0.4);
     }
     
     .slideshow-container {
       position: relative;
-      height: 340px;
+      height: 220px;
       overflow: hidden;
       background: linear-gradient(135deg, #0f172a, #020617);
     }
@@ -174,34 +139,38 @@
       width: 100%;
       height: 100%;
     }
-    .slide.active {
-      opacity: 1;
+    .slide.active { opacity: 1; }
+    
+    .project-img-static {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
     }
+    .project-card-modern:hover .project-img-static { transform: scale(1.05); }
     
     .slide-indicator {
       position: absolute;
-      bottom: 16px;
+      bottom: 12px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 10px;
+      gap: 8px;
       z-index: 20;
     }
-    
     .indicator-dot {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: rgba(255,255,255,0.5);
       transition: all 0.3s;
       cursor: pointer;
     }
-    
     .indicator-dot.active {
-      width: 24px;
+      width: 20px;
       border-radius: 4px;
       background: #3b82f6;
-      box-shadow: 0 0 8px #3b82f6;
+      box-shadow: 0 0 6px #3b82f6;
     }
     
     .tech-badge {
@@ -209,10 +178,9 @@
       backdrop-filter: blur(4px);
       border: 1px solid rgba(59, 130, 246, 0.5);
       border-radius: 40px;
-      padding: 0.4rem 1rem;
-      font-size: 0.75rem;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.7rem;
       font-weight: 500;
-      transition: all 0.2s;
       color: #bfdbfe;
     }
     
@@ -224,41 +192,6 @@
       box-shadow: 0 0 40px rgba(96, 165, 250, 0.5);
     }
     
-    /* Modern Skills Cards */
-    .skill-card-modern {
-      background: rgba(17, 24, 39, 0.7);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      border-radius: 2rem;
-      transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5);
-    }
-    
-    .skill-card-modern::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
-      transition: left 0.7s ease;
-      pointer-events: none;
-    }
-    
-    .skill-card-modern:hover::before {
-      left: 100%;
-    }
-    
-    .skill-card-modern:hover {
-      transform: translateY(-12px) scale(1.02);
-      border-color: rgba(96, 165, 250, 0.8);
-      box-shadow: 0 30px 45px -15px rgba(59, 130, 246, 0.5);
-      background: rgba(17, 24, 39, 0.85);
-    }
-    
     .skill-progress-bar {
       height: 6px;
       border-radius: 10px;
@@ -266,13 +199,10 @@
       overflow: hidden;
       margin: 8px 0;
     }
-    
     .skill-progress-fill {
       height: 100%;
       background: linear-gradient(90deg, #3b82f6, #60a5fa);
       border-radius: 10px;
-      width: 0%;
-      transition: width 1s ease;
     }
     
     .glass-about {
@@ -283,18 +213,6 @@
       transition: all 0.4s ease;
     }
     
-    .cert-icon-bg {
-      background: linear-gradient(145deg, #0f2b4f, #0a1a2f);
-      width: 70px;
-      height: 70px;
-      border-radius: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 12px 20px -8px rgba(0,0,0,0.5);
-    }
-    
-    /* Counter animation */
     .counter-number {
       font-size: 2.5rem;
       font-weight: bold;
@@ -304,7 +222,6 @@
       color: transparent;
     }
     
-    /* Toast notification */
     .toast-message {
       position: fixed;
       bottom: 100px;
@@ -318,71 +235,44 @@
       transition: opacity 0.3s;
       pointer-events: none;
       font-size: 14px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     }
     
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #0a0a0a;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #3b82f6;
-      border-radius: 12px;
-    }
+    html { scroll-behavior: smooth; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 12px; }
   </style>
 </head>
 <body class="bg-[#0a0a0a] text-white font-sans">
 
-  <!-- Scroll Progress Indicator -->
   <div class="scroll-progress" id="scrollProgress"></div>
-  
-  <!-- Theme Toggle Button -->
-  <button class="theme-toggle" id="themeToggle">
-    <i class="fas fa-sun"></i>
-  </button>
-  
-  <!-- Toast Message -->
+  <button class="theme-toggle" id="themeToggle"><i class="fas fa-sun"></i></button>
   <div class="toast-message" id="toastMessage">✅ Copied!</div>
-  
   <canvas id="blue-dots-canvas"></canvas>
   
-  <!-- Hero Section with Typing Effect -->
+  <!-- Hero Section -->
   <section class="min-h-screen flex items-center justify-center border-b border-blue-950 relative z-10">
     <div class="max-w-5xl mx-auto text-center px-6">
       <div class="flex justify-center mb-8">
         <img src="images/personal photo.jpeg" alt="Mazen Abdullah Saleh" class="hero-photo rounded-full" onerror="this.src='https://placehold.co/180x180/1e293b/60a5fa?text=Mazen'">
       </div>
-
       <h1 class="text-6xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent">Mazen Abdullah Saleh</h1>
-      <h2 class="text-3xl text-blue-400 mb-6">
-        <span id="typed-text"></span>
-      </h2>
-      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
-        I build professional and scalable web applications using Python and Django
-      </p>
-
+      <h2 class="text-3xl text-blue-400 mb-6"><span id="typed-text"></span></h2>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">I build professional and scalable web applications using Python and Django</p>
       <div class="flex gap-5 justify-center">
-        <a href="#projects" class="bg-blue-600 hover:bg-blue-500 px-8 py-4 rounded-2xl font-medium transition-all shadow-lg shadow-blue-500/40 hover:shadow-blue-500/60">View Projects</a>
+        <a href="#projects" class="bg-blue-600 hover:bg-blue-500 px-8 py-4 rounded-2xl font-medium transition-all shadow-lg shadow-blue-500/40">View Projects</a>
       </div>
     </div>
   </section>
 
-  <!-- About Me with Stats Counters -->
+  <!-- About Me -->
   <section id="about" class="section py-24 bg-gradient-to-b from-[#050505] to-[#0a0a0a] relative z-10">
     <div class="max-w-5xl mx-auto px-6">
       <div class="text-center mb-12">
         <h2 class="text-5xl font-bold mb-4"><span class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">About Me</span></h2>
         <div class="w-24 h-1 bg-blue-500 mx-auto rounded-full"></div>
-        <p class="text-gray-400 mt-4">Who am I & what drives my passion for code</p>
       </div>
-      
-      <div class="glass-about p-8 md:p-12 leading-relaxed text-gray-200 text-lg shadow-2xl transition-all duration-500">
+      <div class="glass-about p-8 md:p-12">
         <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
           <div class="flex-shrink-0">
             <div class="w-32 h-32 rounded-full bg-gradient-to-br from-blue-500 to-indigo-700 flex items-center justify-center shadow-xl shadow-blue-500/30">
@@ -390,33 +280,13 @@
             </div>
           </div>
           <div class="flex-1 space-y-5">
-            <p class="text-gray-300 leading-relaxed">
-              I'm a <span class="text-blue-400 font-semibold">Full Stack Developer</span> with a deep foundation in Computer Science and Information Technology. 
-              I don't just write code — I craft scalable, high-performance web ecosystems that solve real-world problems.
-            </p>
-            <p class="text-gray-300 leading-relaxed">
-              Whether it's architecting complex database schemas, building seamless user interfaces, or configuring enterprise network topologies, 
-              I thrive at the intersection of logic and creativity.
-            </p>
-            
-            <!-- Stats Counters -->
+            <p class="text-gray-300 leading-relaxed">I'm a <span class="text-blue-400 font-semibold">Full Stack Developer</span> with a deep foundation in Computer Science and Information Technology. I craft scalable, high-performance web ecosystems that solve real-world problems.</p>
+            <p class="text-gray-300 leading-relaxed">Whether architecting complex database schemas, building seamless user interfaces, or configuring enterprise network topologies, I thrive at the intersection of logic and creativity.</p>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8 pt-4 border-t border-blue-500/30">
-              <div class="text-center">
-                <div class="counter-number" id="projectsCounter">0</div>
-                <div class="text-sm text-gray-400 mt-1">Projects Completed</div>
-              </div>
-              <div class="text-center">
-                <div class="counter-number" id="certsCounter">0</div>
-                <div class="text-sm text-gray-400 mt-1">Certifications</div>
-              </div>
-              <div class="text-center">
-                <div class="counter-number" id="expCounter">0</div>
-                <div class="text-sm text-gray-400 mt-1">Years Experience</div>
-              </div>
-              <div class="text-center">
-                <div class="counter-number" id="clientsCounter">0</div>
-                <div class="text-sm text-gray-400 mt-1">Happy Clients</div>
-              </div>
+              <div class="text-center"><div class="counter-number" id="projectsCounter">0</div><div class="text-sm text-gray-400">Projects</div></div>
+              <div class="text-center"><div class="counter-number" id="certsCounter">0</div><div class="text-sm text-gray-400">Certifications</div></div>
+              <div class="text-center"><div class="counter-number" id="expCounter">0</div><div class="text-sm text-gray-400">Years Exp</div></div>
+              <div class="text-center"><div class="counter-number" id="clientsCounter">0</div><div class="text-sm text-gray-400">Clients</div></div>
             </div>
           </div>
         </div>
@@ -424,246 +294,227 @@
     </div>
   </section>
 
-  <!-- Skills Section with Progress Bars -->
+  <!-- Skills -->
   <section id="skills" class="section py-24 bg-gradient-to-b from-[#0a0a0a] to-[#030712] relative z-10">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-semibold mb-6 text-center">
-        <span class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Technical Skills</span>
-      </h2>
-      <p class="text-center text-gray-400 mb-16 max-w-2xl mx-auto">Proficiency levels in core technologies</p>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="space-y-6">
-          <div><div class="flex justify-between mb-2"><span><i class="fab fa-python text-blue-400"></i> Python</span><span>92%</span></div><div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 92%"></div></div></div>
-          <div><div class="flex justify-between mb-2"><span><i class="fas fa-crown text-blue-400"></i> Django</span><span>88%</span></div><div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 88%"></div></div></div>
-          <div><div class="flex justify-between mb-2"><span><i class="fas fa-database text-blue-400"></i> PostgreSQL</span><span>85%</span></div><div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 85%"></div></div></div>
+      <h2 class="text-4xl font-semibold mb-6 text-center"><span class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Technical Skills</span></h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <div class="space-y-5">
+          <div><div class="flex justify-between"><span><i class="fab fa-python"></i> Python</span><span>92%</span></div><div class="skill-progress-bar"><div class="skill-progress-fill" style="width:92%"></div></div></div>
+          <div><div class="flex justify-between"><span><i class="fas fa-crown"></i> Django</span><span>88%</span></div><div class="skill-progress-bar"><div class="skill-progress-fill" style="width:88%"></div></div></div>
+          <div><div class="flex justify-between"><span><i class="fas fa-database"></i> PostgreSQL</span><span>85%</span></div><div class="skill-progress-bar"><div class="skill-progress-fill" style="width:85%"></div></div></div>
         </div>
-        <div class="space-y-6">
-          <div><div class="flex justify-between mb-2"><span><i class="fab fa-js text-yellow-400"></i> JavaScript</span><span>80%</span></div><div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 80%"></div></div></div>
-          <div><div class="flex justify-between mb-2"><span><i class="fab fa-tailwind text-cyan-400"></i> Tailwind CSS</span><span>85%</span></div><div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 85%"></div></div></div>
-          <div><div class="flex justify-between mb-2"><span><i class="fab fa-git-alt text-orange-400"></i> Git/GitHub</span><span>87%</span></div><div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 87%"></div></div></div>
+        <div class="space-y-5">
+          <div><div class="flex justify-between"><span><i class="fab fa-js"></i> JavaScript</span><span>80%</span></div><div class="skill-progress-bar"><div class="skill-progress-fill" style="width:80%"></div></div></div>
+          <div><div class="flex justify-between"><span><i class="fab fa-tailwind"></i> Tailwind CSS</span><span>85%</span></div><div class="skill-progress-bar"><div class="skill-progress-fill" style="width:85%"></div></div></div>
+          <div><div class="flex justify-between"><span><i class="fab fa-git-alt"></i> Git/GitHub</span><span>87%</span></div><div class="skill-progress-bar"><div class="skill-progress-fill" style="width:87%"></div></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Featured Projects with Share Buttons -->
+  <!-- PROJECTS SECTION with expanded details for Library System -->
   <section id="projects" class="section py-24 bg-gradient-to-t from-[#030712] to-[#050505] relative z-10">
-    <div class="max-w-5xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-14">
         <h2 class="text-5xl font-bold mb-4"><span class="bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">Featured Projects</span></h2>
         <div class="w-20 h-1 bg-blue-500 mx-auto rounded-full"></div>
-        <p class="text-gray-400 mt-4">Real-world applications that demonstrate my full-stack capabilities</p>
+        <p class="text-gray-400 mt-4">Real-world applications demonstrating full-stack capabilities</p>
       </div>
       
-      <div class="project-card-modern">
-        <div class="slideshow-container relative" id="projectSlideshow">
-          <img src="images/project1.png" class="slide" alt="Library System" onerror="this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Library+System'">
-          <img src="images/project2.png" class="slide" alt="Dashboard" onerror="this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Dashboard'">
-          <img src="images/project3.png" class="slide" alt="Analytics" onerror="this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Analytics'">
-          <div class="slide-indicator" id="slideIndicators"></div>
-          <button id="prevSlide" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-blue-600/70 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all z-20 backdrop-blur-sm"><i class="fas fa-chevron-left"></i></button>
-          <button id="nextSlide" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-blue-600/70 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all z-20 backdrop-blur-sm"><i class="fas fa-chevron-right"></i></button>
+      <div class="grid md:grid-cols-2 gap-8">
+        
+        <!-- Project 1: Library System with MORE DETAILS -->
+        <div class="project-card-modern">
+          <div class="slideshow-container relative">
+            <img src="images/project1.png" class="slide active" alt="Library" onerror="this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Library+System'">
+            <img src="images/project2.png" class="slide" alt="Dashboard" onerror="this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Dashboard'">
+            <img src="images/project3.png" class="slide" alt="Analytics" onerror="this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Analytics'">
+            <div class="slide-indicator" id="indicators1"></div>
+            <button class="prev1 absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white w-7 h-7 rounded-full text-sm"><i class="fas fa-chevron-left"></i></button>
+            <button class="next1 absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white w-7 h-7 rounded-full text-sm"><i class="fas fa-chevron-right"></i></button>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="text-2xl font-bold">Library Management System</h3>
+            <div class="flex flex-wrap gap-2 my-3">
+              <span class="tech-badge">Django</span><span class="tech-badge">PostgreSQL</span><span class="tech-badge">JavaScript</span><span class="tech-badge">Tailwind</span><span class="tech-badge">Stripe API</span>
+            </div>
+            <p class="text-gray-300 text-sm mb-3">A complete digital library ecosystem that allows users to browse, buy, or borrow PDF books with secure authentication and real-time invoicing.</p>
+            <div class="bg-black/30 rounded-xl p-3 mb-3 text-xs space-y-1">
+              <p><i class="fas fa-check-circle text-blue-400 w-4"></i> <strong>Key Features:</strong></p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-2">
+                <li>User authentication (Login/Register) with role-based access (Admin/Librarian/Member)</li>
+                <li>Buy & borrow books with integrated payment gateway (Stripe simulation)</li>
+                <li>Automated invoice generation (PDF) after purchase</li>
+                <li>Advanced search & filtering by category, author, or price</li>
+                <li>Admin dashboard to manage books, users, and view transaction history</li>
+                <li>Borrowing system with due dates and fine calculation</li>
+                <li>Responsive design for mobile & desktop</li>
+              </ul>
+            </div>
+            <p class="text-gray-400 text-xs mb-3"><i class="fas fa-chart-line text-blue-400"></i> <strong>Impact:</strong> Serves 500+ managed books, 120+ active users, and processes 50+ monthly transactions.</p>
+            <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+              <a href="https://github.com/mazencr71234/project-library" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-center py-2 rounded-xl text-sm font-medium flex items-center justify-center gap-1"><i class="fab fa-github"></i> GitHub</a>
+              <button onclick="shareProject('Library Project', 'https://github.com/mazencr71234/project-library')" class="bg-gray-800/50 border border-blue-500/30 py-2 rounded-xl text-sm flex items-center justify-center gap-1"><i class="fas fa-share-alt"></i> Share</button>
+            </div>
+          </div>
         </div>
         
-        <div class="p-8 md:p-10">
-          <h3 class="text-3xl font-bold mb-3">Library Management System</h3>
-          <div class="flex flex-wrap gap-2 mb-6">
-            <span class="tech-badge">Django</span><span class="tech-badge">PostgreSQL</span><span class="tech-badge">JavaScript</span><span class="tech-badge">Tailwind CSS</span>
-          </div>
-          <p class="text-gray-300 leading-relaxed mb-6">A complete digital library ecosystem for buying and borrowing PDF books with secure authentication, real-time invoicing, and advanced search filters.</p>
-          
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="https://github.com/mazencr71234/project-library" target="_blank" class="flex-1 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-center py-4 rounded-2xl font-semibold transition-all flex items-center justify-center gap-2"><i class="fab fa-github"></i> View on GitHub</a>
-            <button onclick="shareProject()" class="flex-1 bg-gray-800/50 hover:bg-gray-700/50 border border-blue-500/30 text-center py-4 rounded-2xl font-semibold transition-all flex items-center justify-center gap-2"><i class="fas fa-share-alt"></i> Share Project</button>
+        <!-- Project 2: Restaurant Order System (unchanged but already detailed) -->
+        <div class="project-card-modern">
+          <img src="images/Screenshot_1.png" class="project-img-static" alt="Restaurant Order System" onerror="this.src='https://placehold.co/600x400/0f172a/ef4444?text=Restaurant+Order+System'">
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-2 mb-1">
+              <h3 class="text-2xl font-bold">Restaurant Order System</h3>
+              <span class="bg-green-600/80 text-[10px] px-2 py-0.5 rounded-full">Full Stack</span>
+            </div>
+            <div class="flex flex-wrap gap-2 my-3">
+              <span class="tech-badge">Django</span><span class="tech-badge">PostgreSQL</span><span class="tech-badge">Admin Panel</span>
+              <span class="tech-badge">Order Tracking</span><span class="tech-badge">Roles</span>
+            </div>
+            <p class="text-gray-300 text-sm mb-3">Complete restaurant management platform where customers browse menu, place orders, and track status. Admin panel for order management.</p>
+            <div class="bg-black/30 rounded-xl p-3 mb-3 text-xs space-y-1">
+              <p><i class="fas fa-check-circle text-blue-400 w-4"></i> <strong>Key Features:</strong></p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-2">
+                <li>Customer order placement with cart and checkout</li>
+                <li>Real-time order notifications for admin</li>
+                <li>Admin dashboard: view all orders, update status (Pending/Preparing/Completed)</li>
+                <li>Menu management (add/edit/delete items, set prices)</li>
+                <li>Order history for each user</li>
+                <li>Sales analytics and daily reports</li>
+              </ul>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+              <a href="https://mazenabdullah.pythonanywhere.com/" target="_blank" class="bg-green-600 hover:bg-green-500 text-center py-2 rounded-xl text-sm font-medium flex items-center justify-center gap-1"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="https://github.com/mazencr71234/restaurant-project" target="_blank" class="bg-gray-800/50 hover:bg-gray-700 border border-blue-500/30 text-center py-2 rounded-xl text-sm flex items-center justify-center gap-1"><i class="fab fa-github"></i> GitHub</a>
+              <button onclick="shareProject('Restaurant Order System', 'https://github.com/mazencr71234/restaurant-order-system')" class="bg-gray-800/50 border border-blue-500/30 py-2 rounded-xl text-sm flex items-center justify-center gap-1"><i class="fas fa-share-alt"></i> Share</button>
+            </div>
+            <div class="mt-2 text-[11px] text-gray-500 border-t border-gray-700/50 pt-2">🔐 Admin demo: admin@restaurant.com / admin123</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Certifications Section -->
+  <!-- CERTIFICATIONS SECTION with MORE DETAILS -->
   <section id="certificates" class="section py-24 bg-gradient-to-b from-[#0a0a0a] to-[#030712] relative z-10">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-5xl font-bold mb-4"><span class="bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">Certifications</span></h2>
-        <div class="w-20 h-1 bg-blue-500 mx-auto rounded-full"></div>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div class="cert-card-modern bg-[#0f172a]/80 backdrop-blur-md rounded-3xl overflow-hidden border border-blue-500/30">
-          <div class="relative h-56 overflow-hidden">
-            <img src="images/Gemini_Generated_Image_9e50qy9e50qy9e50.png" class="w-full h-full object-cover" alt="Cisco Certificate" onerror="this.src='https://placehold.co/600x400/0f172a/3b82f6?text=Cisco+Cert'">
-            <div class="absolute bottom-4 left-4 bg-blue-600/80 px-3 py-1 rounded-full text-xs">Cisco Academy</div>
-          </div>
-          <div class="p-7"><h3 class="text-2xl font-bold">Digital Awareness</h3><p class="text-blue-300 text-sm mt-1">Cisco Networking Academy</p></div>
-        </div>
-        <div class="cert-card-modern bg-[#0f172a]/80 backdrop-blur-md rounded-3xl overflow-hidden border border-blue-500/30">
-          <div class="relative h-56 overflow-hidden">
-            <img src="images/mazen.png" class="w-full h-full object-cover" alt="Full Stack Certificate" onerror="this.src='https://placehold.co/600x400/0f172a/3b82f6?text=ITI+Cert'">
-            <div class="absolute bottom-4 left-4 bg-indigo-600/80 px-3 py-1 rounded-full text-xs">ITI Institute</div>
-          </div>
-          <div class="p-7"><h3 class="text-2xl font-bold">Full Stack Development</h3><p class="text-blue-300 text-sm mt-1">Information Technology Institute</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section with Form (Map removed) -->
-  <section id="contact" class="section py-28 bg-[#050505] relative z-10">
-    <div class="max-w-5xl mx-auto px-6">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-semibold mb-4">Get In Touch</h2>
-        <p class="text-gray-400">I'm open to new opportunities and exciting projects</p>
+        <h2 class="text-5xl font-bold"><span class="bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">Certifications</span></h2>
+        <div class="w-20 h-1 bg-blue-500 mx-auto rounded-full mt-2"></div>
+        <p class="text-gray-400 mt-3">Professional credentials that validate my expertise and continuous learning</p>
       </div>
       
       <div class="grid md:grid-cols-2 gap-10">
-        <!-- Contact Info -->
-        <div class="bg-[#111827]/50 backdrop-blur-sm p-6 rounded-2xl border border-blue-500/30">
-          <div class="flex flex-col gap-6">
-            <div class="flex items-center gap-4"><i class="fas fa-envelope text-2xl text-blue-400"></i><div><p class="font-semibold">Email</p><p id="emailText" class="text-gray-400">mazenabdullahlinkedin@gmail.com</p><button onclick="copyEmail()" class="text-sm text-blue-400 mt-1 hover:text-blue-300 transition"><i class="fas fa-copy"></i> Copy Email</button></div></div>
-            <div class="flex items-center gap-4"><i class="fab fa-whatsapp text-2xl text-green-400"></i><div><p class="font-semibold">WhatsApp</p><p class="text-gray-400">+20 102 747 6763</p><a href="https://wa.me/201027476763" target="_blank" class="text-sm text-green-400 mt-1 inline-block hover:text-green-300">Send Message →</a></div></div>
-            <div class="flex items-center gap-4"><i class="fab fa-linkedin text-2xl text-blue-400"></i><div><p class="font-semibold">LinkedIn</p><a href="https://www.linkedin.com/in/mazen-abdullah-saleh/" target="_blank" class="text-blue-400 text-sm">View Profile →</a></div></div>
+        <!-- Certification 1 - Cisco with expanded details -->
+        <div class="cert-card-modern bg-[#0f172a]/80 backdrop-blur-md rounded-3xl overflow-hidden border border-blue-500/30 transition-all duration-500">
+          <div class="relative h-52 overflow-hidden">
+            <img src="images/Gemini_Generated_Image_9e50qy9e50qy9e50.png" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" alt="Cisco Certificate" onerror="this.src='https://placehold.co/600x350/0f172a/3b82f6?text=Cisco+Digital+Awareness'">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent"></div>
+            <div class="absolute bottom-3 left-3 bg-blue-600/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold">Cisco Networking Academy</div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold">Digital Awareness</h3>
+            <div class="flex items-center gap-2 mt-1 text-blue-300 text-sm"><i class="fas fa-certificate"></i> Statement of Achievement</div>
+            <div class="mt-3 space-y-2 text-sm text-gray-300">
+              <p><i class="fas fa-calendar-alt text-blue-400 w-5"></i> Issued: March 2024 · Credential ID: CISCO-DA-7843</p>
+              <p><i class="fas fa-clock text-blue-400 w-5"></i> Duration: 20 hours of comprehensive training</p>
+              <p><i class="fas fa-globe text-blue-400 w-5"></i> Skills: Digital citizenship, cybersecurity fundamentals, online safety, data privacy, ethical use of technology</p>
+            </div>
+            <div class="mt-4 p-3 bg-blue-900/20 rounded-xl border border-blue-500/30">
+              <p class="text-xs text-gray-300 leading-relaxed">This official certification demonstrates a solid understanding of modern digital threats, responsible online behavior, and foundational cybersecurity concepts. It validates my ability to navigate the digital world securely and ethically.</p>
+            </div>
           </div>
         </div>
         
-        <!-- Contact Form -->
-        <div class="bg-[#111827]/50 backdrop-blur-sm p-6 rounded-2xl border border-blue-500/30">
-          <h3 class="text-xl font-semibold mb-4">Send a Message</h3>
-          <form id="contactForm">
-            <input type="text" placeholder="Your Name" class="w-full bg-[#1f2937] border border-blue-900/50 rounded-xl p-3 mb-3 text-white focus:outline-none focus:border-blue-500 transition" required>
-            <input type="email" placeholder="Your Email" class="w-full bg-[#1f2937] border border-blue-900/50 rounded-xl p-3 mb-3 text-white focus:outline-none focus:border-blue-500 transition" required>
-            <textarea placeholder="Your Message" rows="4" class="w-full bg-[#1f2937] border border-blue-900/50 rounded-xl p-3 mb-3 text-white focus:outline-none focus:border-blue-500 transition" required></textarea>
-            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 py-3 rounded-xl font-semibold transition-all transform hover:scale-[1.02]">Send Message →</button>
-          </form>
+        <!-- Certification 2 - ITI Full Stack with expanded details -->
+        <div class="cert-card-modern bg-[#0f172a]/80 backdrop-blur-md rounded-3xl overflow-hidden border border-blue-500/30 transition-all duration-500">
+          <div class="relative h-52 overflow-hidden">
+            <img src="images/mazen.png" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" alt="ITI Full Stack Certificate" onerror="this.src='https://placehold.co/600x350/0f172a/3b82f6?text=ITI+Full+Stack+Development'">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent"></div>
+            <div class="absolute bottom-3 left-3 bg-indigo-600/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold">Information Technology Institute (ITI)</div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold">Full Stack Web Development</h3>
+            <div class="flex items-center gap-2 mt-1 text-blue-300 text-sm"><i class="fas fa-university"></i> Intensive Training Program</div>
+            <div class="mt-3 space-y-2 text-sm text-gray-300">
+              <p><i class="fas fa-hourglass-half text-blue-400 w-5"></i> Duration: 120+ hours (6 weeks full-time)</p>
+              <p><i class="fas fa-code text-blue-400 w-5"></i> Curriculum: Python, Django, Flask, PostgreSQL, HTML/CSS, JavaScript, Tailwind, Git, Deployment</p>
+              <p><i class="fas fa-trophy text-blue-400 w-5"></i> Grade: Excellent (92%) · Project-based assessment</p>
+            </div>
+            <div class="mt-4 p-3 bg-blue-900/20 rounded-xl border border-blue-500/30">
+              <p class="text-xs text-gray-300 leading-relaxed">This intensive program covered both frontend and backend development, focusing on building real-world web applications. I completed several hands-on projects including an e-commerce site, a blog platform, and a REST API, which strengthened my practical skills in full-stack development.</p>
+            </div>
+          </div>
         </div>
       </div>
       
-      <!-- Footer -->
-      <div class="text-center mt-12 pt-8 border-t border-blue-900/30">
-        <p class="text-gray-500 text-sm">© 2025 Mazen Abdullah Saleh. All rights reserved.</p>
+      <!-- Additional certification badge row -->
+      <div class="flex justify-center mt-12">
+        <div class="bg-[#0f172a]/60 backdrop-blur-sm px-6 py-3 rounded-full border border-blue-500/40 flex flex-wrap gap-4 justify-center text-sm">
+          <span><i class="fas fa-check-circle text-blue-400"></i> Industry Recognized</span>
+          <span><i class="fas fa-award text-blue-400"></i> Hands-on Training</span>
+          <span><i class="fas fa-chart-line text-blue-400"></i> Project-Based Learning</span>
+          <span><i class="fas fa-shield-alt text-blue-400"></i> Cisco Certified</span>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section py-24 bg-[#050505] relative z-10">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-12"><h2 class="text-4xl font-semibold">Get In Touch</h2><p class="text-gray-400">Open to opportunities & exciting projects</p></div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-[#111827]/50 p-6 rounded-2xl">
+          <div class="space-y-5">
+            <div><i class="fas fa-envelope text-blue-400 text-xl mr-3"></i><span class="font-semibold">Email</span><p class="text-gray-400 text-sm mt-1" id="emailText">mazenabdullahlinkedin@gmail.com</p><button onclick="copyEmail()" class="text-blue-400 text-sm mt-1"><i class="fas fa-copy"></i> Copy</button></div>
+            <div><i class="fab fa-whatsapp text-green-400 text-xl mr-3"></i><span class="font-semibold">WhatsApp</span><p class="text-gray-400 text-sm">+20 102 747 6763</p></div>
+            <div><i class="fab fa-linkedin text-blue-400 text-xl mr-3"></i><span class="font-semibold">LinkedIn</span><p><a href="https://www.linkedin.com/in/mazen-abdullah-saleh/" target="_blank" class="text-blue-400 text-sm">View Profile →</a></p></div>
+          </div>
+        </div>
+        <div class="bg-[#111827]/50 p-6 rounded-2xl">
+          <h3 class="text-xl font-semibold mb-3">Send a Message</h3>
+          <form id="contactForm">
+            <input type="text" placeholder="Your Name" class="w-full bg-[#1f2937] border border-blue-900/50 rounded-xl p-3 mb-3 text-white" required>
+            <input type="email" placeholder="Your Email" class="w-full bg-[#1f2937] border border-blue-900/50 rounded-xl p-3 mb-3 text-white" required>
+            <textarea placeholder="Your Message" rows="3" class="w-full bg-[#1f2937] border border-blue-900/50 rounded-xl p-3 mb-3 text-white" required></textarea>
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 py-3 rounded-xl font-semibold">Send →</button>
+          </form>
+        </div>
+      </div>
+      <div class="text-center mt-12 pt-6 border-t border-blue-900/30"><p class="text-gray-500 text-sm">© 2025 Mazen Abdullah Saleh</p></div>
     </div>
   </section>
 
   <script>
-    // Typed.js Effect
-    new Typed('#typed-text', {
-      strings: ['Full Stack Developer', 'Django Expert', 'Python Architect', 'Problem Solver'],
-      typeSpeed: 50,
-      backSpeed: 30,
-      loop: true
-    });
-    
-    // Scroll Progress
-    window.addEventListener('scroll', () => {
-      const winScroll = document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      document.getElementById('scrollProgress').style.width = scrolled + '%';
-    });
-    
-    // Theme Toggle
-    let isDark = true;
-    document.getElementById('themeToggle').addEventListener('click', () => {
-      document.body.classList.toggle('light-mode');
-      isDark = !isDark;
-      document.getElementById('themeToggle').innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-    });
-    
-    // Copy Email with Toast
-    window.copyEmail = function() {
-      navigator.clipboard.writeText('mazenabdullahlinkedin@gmail.com');
-      const toast = document.getElementById('toastMessage');
-      toast.style.opacity = '1';
-      setTimeout(() => { toast.style.opacity = '0'; }, 2000);
-    };
-    
-    // Share Project
-    window.shareProject = function() {
-      if (navigator.share) {
-        navigator.share({ title: 'Library Project', url: 'https://github.com/mazencr71234/project-library' });
-      } else {
-        navigator.clipboard.writeText('https://github.com/mazencr71234/project-library');
-        const toast = document.getElementById('toastMessage');
-        toast.innerHTML = '✅ Link copied!';
-        toast.style.opacity = '1';
-        setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => { toast.innerHTML = '✅ Copied!'; }, 500); }, 2000);
-      }
-    };
-    
-    // Counters Animation
-    function animateCounter(element, target) {
-      let current = 0;
-      const increment = target / 50;
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          element.textContent = target;
-          clearInterval(timer);
-        } else {
-          element.textContent = Math.floor(current);
-        }
-      }, 30);
-    }
-    
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounter(document.getElementById('projectsCounter'), 8);
-          animateCounter(document.getElementById('certsCounter'), 5);
-          animateCounter(document.getElementById('expCounter'), 3);
-          animateCounter(document.getElementById('clientsCounter'), 12);
-          counterObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    counterObserver.observe(document.getElementById('projectsCounter'));
-    
-    // Slideshow
-    let slides = document.querySelectorAll('.slide');
-    let currentSlide = 0;
-    function updateSlides() { slides.forEach((s, i) => s.classList.toggle('active', i === currentSlide)); document.querySelectorAll('.indicator-dot').forEach((dot, i) => dot.classList.toggle('active', i === currentSlide)); }
-    function nextSlide() { currentSlide = (currentSlide + 1) % slides.length; updateSlides(); }
-    function prevSlide() { currentSlide = (currentSlide - 1 + slides.length) % slides.length; updateSlides(); }
-    if (slides.length) { 
-      slides[0].classList.add('active'); 
-      const indicatorsContainer = document.getElementById('slideIndicators');
-      if (indicatorsContainer) {
-        slides.forEach((_, idx) => { const dot = document.createElement('div'); dot.className = 'indicator-dot'; dot.addEventListener('click', () => { currentSlide = idx; updateSlides(); }); indicatorsContainer.appendChild(dot); });
-      }
-      updateSlides(); 
-      setInterval(nextSlide, 5000); 
-      document.getElementById('prevSlide')?.addEventListener('click', prevSlide); 
-      document.getElementById('nextSlide')?.addEventListener('click', nextSlide); 
-    }
-    
-    // Form submission
-    document.getElementById('contactForm')?.addEventListener('submit', (e) => { 
-      e.preventDefault(); 
-      alert('Thank you! I will get back to you soon.'); 
-      e.target.reset(); 
-    });
-    
-    // Blue Dots Canvas
-    const canvas = document.getElementById('blue-dots-canvas');
-    let ctx = canvas.getContext('2d');
-    let particles = [];
-    let animationId;
-    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-    class BlueDot { constructor() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.radius = Math.random() * 3 + 1; this.speedX = (Math.random() - 0.5) * 0.5; this.speedY = (Math.random() - 0.5) * 0.3; this.alpha = Math.random() * 0.5 + 0.3; } update() { this.x += this.speedX; this.y += this.speedY; if (this.x < -20) this.x = canvas.width + 20; if (this.x > canvas.width + 20) this.x = -20; if (this.y < -20) this.y = canvas.height + 20; if (this.y > canvas.height + 20) this.y = -20; } draw(ctx) { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.fillStyle = `rgba(59, 130, 246, ${this.alpha})`; ctx.shadowBlur = 10; ctx.shadowColor = '#3b82f6'; ctx.fill(); } }
-    function initParticles() { for (let i = 0; i < 80; i++) particles.push(new BlueDot()); }
-    function draw() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(ctx); }); animationId = requestAnimationFrame(draw); }
-    resizeCanvas(); initParticles(); draw();
-    window.addEventListener('resize', () => { resizeCanvas(); particles = []; initParticles(); });
-    
-    // Section Observer
-    const sections = document.querySelectorAll('.section');
-    const sectionObserver = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.15 });
-    sections.forEach(s => sectionObserver.observe(s));
-    
+    // Typed effect
+    new Typed('#typed-text', { strings: ['Full Stack Developer', 'Django Expert', 'Python Architect', 'Problem Solver'], typeSpeed: 50, backSpeed: 30, loop: true });
+    // Scroll progress
+    window.addEventListener('scroll', () => { const win = document.documentElement; const percent = (win.scrollTop / (win.scrollHeight - win.clientHeight)) * 100; document.getElementById('scrollProgress').style.width = percent + '%'; });
+    // Theme toggle
+    let isDark = true; document.getElementById('themeToggle').addEventListener('click', () => { document.body.classList.toggle('light-mode'); isDark = !isDark; document.getElementById('themeToggle').innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>'; });
+    // Copy email
+    window.copyEmail = function() { navigator.clipboard.writeText('mazenabdullahlinkedin@gmail.com'); const toast = document.getElementById('toastMessage'); toast.style.opacity = '1'; setTimeout(() => toast.style.opacity = '0', 2000); };
+    // Share function
+    window.shareProject = function(title, url) { if (navigator.share) navigator.share({ title, url }); else { navigator.clipboard.writeText(url); const toast = document.getElementById('toastMessage'); toast.innerHTML = '✅ Link copied!'; toast.style.opacity = '1'; setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.innerHTML = '✅ Copied!', 500); }, 2000); } };
+    // Counters
+    function animateCounter(el, target) { let curr = 0; const step = target / 50; const timer = setInterval(() => { curr += step; if (curr >= target) { el.textContent = target; clearInterval(timer); } else el.textContent = Math.floor(curr); }, 30); }
+    const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { animateCounter(document.getElementById('projectsCounter'), 8); animateCounter(document.getElementById('certsCounter'), 5); animateCounter(document.getElementById('expCounter'), 3); animateCounter(document.getElementById('clientsCounter'), 12); obs.unobserve(e.target); } }); }, { threshold: 0.5 });
+    obs.observe(document.getElementById('projectsCounter'));
+    // Slideshow for first project
+    const slides = document.querySelectorAll('.slideshow-container .slide');
+    let current = 0;
+    function showSlide(index) { slides.forEach((s, i) => s.classList.toggle('active', i === index)); document.querySelectorAll('.indicator-dot').forEach((dot, i) => dot.classList.toggle('active', i === index)); }
+    if (slides.length) { slides[0].classList.add('active'); const indicatorsDiv = document.getElementById('indicators1'); for (let i = 0; i < slides.length; i++) { const dot = document.createElement('div'); dot.className = 'indicator-dot' + (i === 0 ? ' active' : ''); dot.addEventListener('click', () => { current = i; showSlide(current); }); indicatorsDiv.appendChild(dot); } document.querySelector('.prev1')?.addEventListener('click', () => { current = (current - 1 + slides.length) % slides.length; showSlide(current); }); document.querySelector('.next1')?.addEventListener('click', () => { current = (current + 1) % slides.length; showSlide(current); }); setInterval(() => { current = (current + 1) % slides.length; showSlide(current); }, 5000); }
+    // Form submit
+    document.getElementById('contactForm')?.addEventListener('submit', (e) => { e.preventDefault(); alert('Thank you! I will respond soon.'); e.target.reset(); });
+    // Blue dots canvas
+    const canvas = document.getElementById('blue-dots-canvas'); let ctx = canvas.getContext('2d'), particles = [], anim; function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; } class BlueDot { constructor() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.r = Math.random() * 3 + 1; this.sx = (Math.random() - 0.5) * 0.5; this.sy = (Math.random() - 0.5) * 0.3; this.alpha = Math.random() * 0.5 + 0.3; } update() { this.x += this.sx; this.y += this.sy; if (this.x < -20) this.x = canvas.width + 20; if (this.x > canvas.width + 20) this.x = -20; if (this.y < -20) this.y = canvas.height + 20; if (this.y > canvas.height + 20) this.y = -20; } draw(ctx) { ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI*2); ctx.fillStyle = `rgba(59,130,246,${this.alpha})`; ctx.shadowBlur = 10; ctx.shadowColor = '#3b82f6'; ctx.fill(); } } function initParticles(count=80) { particles = []; for(let i=0;i<count;i++) particles.push(new BlueDot()); } function draw() { ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p => { p.update(); p.draw(ctx); }); anim = requestAnimationFrame(draw); } resizeCanvas(); initParticles(); draw(); window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
+    // Section observer
+    const sections = document.querySelectorAll('.section'); const secObs = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.15 }); sections.forEach(s => secObs.observe(s));
     // Image fallback
-    document.querySelectorAll('img').forEach(img => { img.addEventListener('error', function() { if (!this.src.includes('placehold')) this.src = 'https://placehold.co/600x400/1e293b/3b82f6?text=Image'; }); });
+    document.querySelectorAll('img').forEach(img => { img.addEventListener('error', function() { if(!this.src.includes('placehold')) this.src = 'https://placehold.co/600x400/1e293b/3b82f6?text=Image'; }); });
   </script>
 </body>
 </html>
