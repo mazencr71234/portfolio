@@ -383,24 +383,6 @@
       border-color: rgba(59, 130, 246, 0.3);
       box-shadow: 0 20px 60px rgba(59, 130, 246, 0.1);
     }
-    .counter-box {
-      text-align: center;
-      padding: 1rem;
-    }
-    .counter-number {
-      font-size: 2.5rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #60a5fa, #a78bfa);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      line-height: 1.2;
-    }
-    .counter-label {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-      margin-top: 0.25rem;
-    }
 
     /* ===== SKILLS ===== */
     .skill-category-title {
@@ -997,26 +979,6 @@
             </p>
           </div>
         </div>
-
-        <!-- Counters -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 pt-8 border-t border-white/5">
-          <div class="counter-box">
-            <div class="counter-number" data-target="8">0</div>
-            <div class="counter-label">Projects</div>
-          </div>
-          <div class="counter-box">
-            <div class="counter-number" data-target="5">0</div>
-            <div class="counter-label">Certifications</div>
-          </div>
-          <div class="counter-box">
-            <div class="counter-number" data-target="3">0</div>
-            <div class="counter-label">Years Exp</div>
-          </div>
-          <div class="counter-box">
-            <div class="counter-number" data-target="12">0</div>
-            <div class="counter-label">Clients</div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -1586,22 +1548,6 @@
       setTimeout(() => toast.classList.remove('show'), 2500);
     }
 
-    // ===== COUNTERS =====
-    function animateCounter(el) {
-      const target = parseInt(el.getAttribute('data-target'));
-      let current = 0;
-      const step = target / 40;
-      const timer = setInterval(() => {
-        current += step;
-        if (current >= target) {
-          el.textContent = target;
-          clearInterval(timer);
-        } else {
-          el.textContent = Math.floor(current);
-        }
-      }, 40);
-    }
-
     // ===== SKILL BAR ANIMATION =====
     function animateSkillBars(container) {
       container.querySelectorAll('.skill-bar-fill').forEach(bar => {
@@ -1615,14 +1561,6 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-
-          // Animate counters when about section appears
-          entry.target.querySelectorAll('.counter-number[data-target]').forEach(el => {
-            if (!el.dataset.animated) {
-              el.dataset.animated = 'true';
-              animateCounter(el);
-            }
-          });
 
           // Animate skill bars
           entry.target.querySelectorAll('.stagger-children').forEach(container => {
